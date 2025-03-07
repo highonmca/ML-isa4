@@ -1,0 +1,125 @@
+
+===== Logistic Regression =====
+Accuracy: 0.9306
+F1 Score: 0.9305
+Precision: 0.9369
+Recall: 0.9306
+Classification Report:
+                 precision    recall  f1-score   support
+
+exponential.png       0.89      0.95      0.92       206
+     linear.png       1.00      0.88      0.94       184
+  quadratic.png       1.00      0.86      0.92       179
+        sin.png       0.89      1.00      0.94       267
+
+       accuracy                           0.93       836
+      macro avg       0.94      0.92      0.93       836
+   weighted avg       0.94      0.93      0.93       836
+
+Confusion Matrix:
+195 0 0 11
+0 162 0 22
+25 0 154 0
+0 0 0 267
+
+--------------------------------------------------
+
+===== Decision Tree =====
+Accuracy: 0.9952
+F1 Score: 0.9952
+Precision: 0.9952
+Recall: 0.9952
+Classification Report:
+                 precision    recall  f1-score   support
+
+exponential.png       1.00      1.00      1.00       206
+     linear.png       1.00      0.99      0.99       184
+  quadratic.png       0.99      0.99      0.99       179
+        sin.png       0.99      1.00      1.00       267
+
+       accuracy                           1.00       836
+      macro avg       1.00      0.99      1.00       836
+   weighted avg       1.00      1.00      1.00       836
+
+Confusion Matrix:
+205 0 1 0
+0 182 0 2
+1 0 178 0
+0 0 0 267
+
+--------------------------------------------------
+
+===== Gaussian Naïve Bayes =====
+Accuracy: 0.8971
+F1 Score: 0.8964
+Precision: 0.9146
+Recall: 0.8971
+Classification Report:
+                 precision    recall  f1-score   support
+
+exponential.png       0.74      0.97      0.84       206
+     linear.png       0.96      0.68      0.80       184
+  quadratic.png       0.96      0.91      0.94       179
+        sin.png       0.98      0.98      0.98       267
+
+       accuracy                           0.90       836
+      macro avg       0.91      0.89      0.89       836
+   weighted avg       0.91      0.90      0.90       836
+
+Confusion Matrix:
+200 0 3 3
+55 125 3 1
+16 0 163 0
+0 5 0 262
+
+--------------------------------------------------
+
+===== SVM =====
+Accuracy: 0.9581
+F1 Score: 0.9579
+Precision: 0.9605
+Recall: 0.9581
+Classification Report:
+                 precision    recall  f1-score   support
+
+exponential.png       0.89      0.95      0.92       206
+     linear.png       1.00      0.99      1.00       184
+  quadratic.png       1.00      0.87      0.93       179
+        sin.png       0.96      1.00      0.98       267
+
+       accuracy                           0.96       836
+      macro avg       0.96      0.95      0.96       836
+   weighted avg       0.96      0.96      0.96       836
+
+Confusion Matrix:
+196 0 0 10
+0 183 0 1
+24 0 155 0
+0 0 0 267
+
+--------------------------------------------------
+
+===== RandomForestClassifier =====
+Accuracy: 0.9988
+F1 Score: 0.9988
+Precision: 0.9988
+Recall: 0.9988
+Classification Report:
+                 precision    recall  f1-score   support
+
+exponential.png       1.00      1.00      1.00       206
+     linear.png       1.00      1.00      1.00       184
+  quadratic.png       1.00      0.99      1.00       179
+        sin.png       1.00      1.00      1.00       267
+
+       accuracy                           1.00       836
+      macro avg       1.00      1.00      1.00       836
+   weighted avg       1.00      1.00      1.00       836
+
+Confusion Matrix:
+206 0 0 0
+0 184 0 0
+1 0 178 0
+0 0 0 267
+
+--------------------------------------------------
