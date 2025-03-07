@@ -125,3 +125,61 @@ This research presents a novel approach for automated graph data extraction usin
 
 ---
 
+results :
+
+The poor performance of **Logistic Regression, SVM, and Gaussian Naïve Bayes (GNB)** compared to the **Decision Tree** can be attributed to several factors related to the nature of the dataset and the fundamental properties of these algorithms. Here’s why:
+
+---
+
+### **1. Logistic Regression's Poor Performance**
+- **Assumes Linear Separability:**
+  Logistic Regression works well when the classes can be separated by a linear boundary. However, in this case, different function types (e.g., **Trigonometric, Polynomial, Logarithmic**) are **non-linearly separable**. The model struggles to find a single decision boundary that correctly classifies all classes.
+- **Low Precision and Recall for Some Classes:**
+  The confusion matrix shows that **polynomials and exponentials are often misclassified as trigonometric functions**, indicating that the model cannot differentiate them well. The recall for **Polynomial (0.08)** and **Logarithmic (0.24)** is very low, meaning it fails to correctly identify many instances of these classes.
+- **Feature Representation:**
+  If the extracted graph data does not have clear linear relationships, Logistic Regression will struggle to learn meaningful patterns.
+
+---
+
+### **2. SVM’s Poor Performance**
+- **Non-Linearly Separable Data:**
+  SVMs perform well with **linearly separable data** or with **well-defined kernel transformations**. Since the dataset has **highly non-linear relationships** between function types, a linear SVM fails to find a good decision boundary.
+- **Choice of Kernel:**
+  If a **linear kernel** was used, it would struggle with classes like **Trigonometric** and **Polynomial**, which may require a more flexible **RBF (Radial Basis Function) kernel**. Without proper kernel tuning, SVM cannot effectively classify these functions.
+- **High Confusion for Some Classes:**
+  The **confusion matrix** shows that **Polynomial functions (233 samples) are classified as Trigonometric (145 times)** or **completely misclassified**, meaning SVM cannot separate these function types properly.
+- **Overlapping Data Distributions:**
+  Some functions have very similar shapes in the dataset (e.g., **Exponential and Logarithmic**), making it difficult for SVM to learn a good separation.
+
+---
+
+### **3. Gaussian Naïve Bayes’ (GNB) Poor Performance**
+- **Assumes Feature Independence:**
+  Naïve Bayes assumes that all features are **independent**, which is unrealistic for graph-based function classification. For example, in function graphs, **X-coordinates and Y-coordinates are correlated**, violating the assumption.
+- **Gaussian Distribution Assumption:**
+  GNB assumes that features follow a **Gaussian (normal) distribution**, but function graphs do not necessarily have normally distributed pixel intensities or extracted numerical features (e.g., curvature, slope).
+- **Severe Misclassifications:**
+  - **Exponential functions:** Almost entirely misclassified, because their patterns do not conform to a simple Gaussian distribution.
+  - **Trigonometric functions:** Have relatively better recall (**0.79**), but still suffer from confusion with other classes.
+  - **Polynomial and Logarithmic functions:** Have very low recall (**0.05 and 0.18** respectively), indicating that GNB struggles to recognize them.
+
+---
+
+### **Why Decision Tree Performs Well**
+- **Handles Non-Linearity:**
+  Decision Trees can **model complex decision boundaries** without requiring linear separability, making them well-suited for classifying different function types.
+- **Feature Importance:**
+  Decision Trees can automatically determine which features (e.g., **curvature, slope, pixel intensity distributions**) are most important for classification.
+- **Interpretable Decision Making:**
+  By recursively splitting the data based on feature thresholds, a Decision Tree effectively captures **non-linear relationships** in the dataset.
+
+---
+
+### **Conclusion**
+The **poor performance of Logistic Regression, SVM, and GNB** can be attributed to:
+1. **Non-linear decision boundaries** needed for function classification.
+2. **Overlapping feature distributions** between different function types.
+3. **Gaussian assumptions (for GNB) and linear assumptions (for Logistic Regression & SVM) failing** on graph-based data.
+4. **Lack of proper feature representation** making it harder for these models to distinguish between function classes.
+
+To improve their performance, **feature engineering (e.g., adding more curvature-related features, using PCA for dimensionality reduction)** and **using non-linear kernels for SVM (e.g., RBF Kernel)** could be explored.
