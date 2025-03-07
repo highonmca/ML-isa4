@@ -1,0 +1,184 @@
+
+===== Logistic Regression =====
+Accuracy: 0.2256
+F1 Score: 0.1657
+Precision: 0.1458
+Classification Report:
+                      precision    recall  f1-score   support
+
+         Exponential       0.22      0.48      0.30       522
+          Hyperbolic       0.15      0.41      0.22       722
+         Logarithmic       0.00      0.00      0.00       460
+           Piecewise       0.00      0.00      0.00       251
+    Polynomial_Cubic       0.00      0.00      0.00       246
+   Polynomial_Linear       0.24      0.06      0.10       265
+Polynomial_Quadratic       0.00      0.00      0.00       261
+  Polynomial_Quartic       0.09      0.03      0.04       256
+  Polynomial_Quintic       0.09      0.07      0.08       259
+   Trigonometric_Cos       0.00      0.00      0.00       236
+   Trigonometric_Cot       0.62      0.64      0.63       206
+   Trigonometric_Sec       0.03      0.01      0.02       251
+   Trigonometric_Sin       0.00      0.00      0.00       235
+   Trigonometric_Tan       0.00      0.00      0.00       218
+             Unknown       0.33      0.50      0.39       979
+
+            accuracy                           0.23      5367
+           macro avg       0.12      0.15      0.12      5367
+        weighted avg       0.15      0.23      0.17      5367
+
+Confusion Matrix:
+250 173 0 1 2 19 0 4 3 0 0 28 0 0 42
+179 296 0 0 0 0 0 7 40 5 0 7 0 0 188
+8 171 0 0 0 5 0 18 11 0 0 1 0 0 246
+13 96 0 0 0 4 0 1 0 0 0 5 0 0 132
+43 158 0 0 0 0 0 1 25 8 0 1 0 0 10
+117 43 0 0 0 16 0 1 4 0 0 31 0 0 53
+9 45 0 0 0 0 0 0 0 0 0 0 0 0 207
+66 139 0 0 1 0 0 7 37 0 0 5 0 0 1
+93 125 0 0 3 0 0 6 18 11 0 2 0 0 1
+100 127 0 0 2 0 0 5 1 0 0 1 0 0 0
+8 2 0 0 0 0 0 0 0 0 132 0 0 0 64
+49 147 0 0 2 0 0 12 38 0 0 3 0 0 0
+6 135 0 0 2 0 0 14 7 0 0 2 0 0 69
+134 75 0 0 0 0 0 0 2 0 0 6 0 0 1
+73 276 0 1 1 24 0 2 4 6 81 22 0 0 489
+
+--------------------------------------------------
+
+===== Decision Tree =====
+Accuracy: 0.6747
+F1 Score: 0.6757
+Precision: 0.6772
+Classification Report:
+                      precision    recall  f1-score   support
+
+         Exponential       0.72      0.73      0.73       522
+          Hyperbolic       0.57      0.58      0.58       722
+         Logarithmic       0.61      0.63      0.62       460
+           Piecewise       0.81      0.80      0.81       251
+    Polynomial_Cubic       0.49      0.52      0.50       246
+   Polynomial_Linear       0.50      0.50      0.50       265
+Polynomial_Quadratic       0.96      0.95      0.96       261
+  Polynomial_Quartic       0.47      0.46      0.47       256
+  Polynomial_Quintic       0.86      0.78      0.82       259
+   Trigonometric_Cos       0.94      0.94      0.94       236
+   Trigonometric_Cot       0.95      0.98      0.96       206
+   Trigonometric_Sec       0.47      0.50      0.48       251
+   Trigonometric_Sin       0.30      0.29      0.30       235
+   Trigonometric_Tan       0.29      0.28      0.29       218
+             Unknown       0.86      0.84      0.85       979
+
+            accuracy                           0.67      5367
+           macro avg       0.65      0.65      0.65      5367
+        weighted avg       0.68      0.67      0.68      5367
+
+Confusion Matrix:
+380 2 0 14 0 100 2 5 3 1 0 1 1 1 12
+2 421 7 0 97 1 2 5 9 1 1 4 7 146 19
+1 10 288 3 2 0 2 4 0 0 0 6 134 0 10
+6 0 3 202 0 5 0 0 0 1 0 0 4 1 29
+0 98 1 0 127 0 0 1 6 1 0 2 0 0 10
+101 2 0 6 0 133 0 0 0 0 0 0 0 0 23
+1 2 2 0 0 0 249 0 2 0 0 0 0 0 5
+3 1 4 0 0 1 0 119 6 1 0 116 3 1 1
+5 17 0 0 12 4 0 4 202 1 0 5 0 2 7
+2 1 0 0 2 0 1 1 0 222 0 0 1 0 6
+0 0 0 0 0 0 0 0 0 3 201 0 0 0 2
+3 2 3 0 0 1 0 112 2 0 0 125 2 0 1
+1 3 150 2 1 0 0 1 0 0 0 3 69 0 5
+1 150 0 0 0 0 0 2 0 1 0 2 0 62 0
+19 29 15 23 17 19 4 0 4 3 10 4 7 4 821
+
+--------------------------------------------------
+
+===== Gaussian Na�ve Bayes =====
+Accuracy: 0.1492
+F1 Score: 0.1135
+Precision: 0.2312
+Classification Report:
+                      precision    recall  f1-score   support
+
+         Exponential       0.46      0.01      0.02       522
+          Hyperbolic       0.14      0.14      0.14       722
+         Logarithmic       0.16      0.17      0.17       460
+           Piecewise       0.00      0.00      0.00       251
+    Polynomial_Cubic       0.05      0.19      0.08       246
+   Polynomial_Linear       0.20      0.04      0.07       265
+Polynomial_Quadratic       0.15      0.73      0.24       261
+  Polynomial_Quartic       0.00      0.00      0.00       256
+  Polynomial_Quintic       0.25      0.00      0.01       259
+   Trigonometric_Cos       0.18      0.26      0.21       236
+   Trigonometric_Cot       0.31      0.88      0.46       206
+   Trigonometric_Sec       0.01      0.02      0.01       251
+   Trigonometric_Sin       0.11      0.13      0.12       235
+   Trigonometric_Tan       0.18      0.13      0.15       218
+             Unknown       0.50      0.06      0.11       979
+
+            accuracy                           0.15      5367
+           macro avg       0.18      0.18      0.12      5367
+        weighted avg       0.23      0.15      0.11      5367
+
+Confusion Matrix:
+6 132 75 1 102 14 23 0 0 16 0 115 0 29 9
+1 99 4 0 116 3 201 0 0 40 79 59 63 46 11
+0 39 79 0 26 5 192 0 0 13 44 0 47 4 11
+0 22 79 0 27 8 57 0 0 1 0 24 28 1 4
+0 24 0 0 47 0 68 0 0 38 0 2 57 10 0
+0 38 85 4 31 11 13 1 0 5 0 68 0 0 9
+0 14 0 0 0 0 190 0 1 0 51 0 0 5 0
+0 54 0 0 98 0 51 0 0 45 0 2 0 6 0
+1 56 0 0 108 0 36 0 1 46 0 6 0 5 0
+1 36 0 0 94 0 12 0 1 61 0 23 0 8 0
+0 5 0 0 0 0 0 0 0 8 182 0 0 0 11
+0 36 0 0 108 0 50 0 0 45 0 4 0 8 0
+0 44 0 0 19 0 128 0 0 8 0 0 30 6 0
+1 30 6 0 56 4 44 0 0 4 0 36 0 29 8
+3 87 167 1 44 11 242 0 1 17 234 66 37 7 62
+
+--------------------------------------------------
+
+===== SVM =====
+Accuracy: 0.2241
+F1 Score: 0.1567
+Precision: 0.1459
+Classification Report:
+                      precision    recall  f1-score   support
+
+         Exponential       0.20      0.43      0.27       522
+          Hyperbolic       0.15      0.59      0.24       722
+         Logarithmic       0.00      0.00      0.00       460
+           Piecewise       0.00      0.00      0.00       251
+    Polynomial_Cubic       0.00      0.00      0.00       246
+   Polynomial_Linear       0.00      0.00      0.00       265
+Polynomial_Quadratic       0.00      0.00      0.00       261
+  Polynomial_Quartic       0.20      0.00      0.01       256
+  Polynomial_Quintic       0.09      0.01      0.02       259
+   Trigonometric_Cos       0.00      0.00      0.00       236
+   Trigonometric_Cot       0.63      0.66      0.64       206
+   Trigonometric_Sec       0.00      0.00      0.00       251
+   Trigonometric_Sin       0.00      0.00      0.00       235
+   Trigonometric_Tan       0.00      0.00      0.00       218
+             Unknown       0.37      0.42      0.40       979
+
+            accuracy                           0.22      5367
+           macro avg       0.11      0.14      0.11      5367
+        weighted avg       0.15      0.22      0.16      5367
+
+Confusion Matrix:
+222 260 0 0 0 0 0 0 0 0 0 0 0 0 40
+167 429 0 0 0 0 0 1 4 0 0 0 0 0 121
+19 270 0 0 0 0 0 1 7 0 0 0 0 0 163
+18 109 0 0 0 0 0 0 0 0 0 0 0 0 124
+41 202 0 0 0 0 0 0 3 0 0 0 0 0 0
+110 101 0 0 0 0 0 0 0 0 0 0 0 0 54
+9 123 0 0 0 0 0 0 0 0 0 0 0 0 129
+71 179 0 0 0 0 0 1 5 0 0 0 0 0 0
+58 197 0 0 0 0 0 1 3 0 0 0 0 0 0
+88 148 0 0 0 0 0 0 0 0 0 0 0 0 0
+6 6 0 0 0 0 0 0 0 0 135 0 0 0 59
+64 181 0 0 0 0 0 1 5 0 0 0 0 0 0
+4 227 0 0 0 0 0 0 3 0 0 0 0 0 1
+119 98 0 0 0 0 0 0 0 0 0 0 0 0 1
+102 383 0 0 0 0 0 0 2 0 79 0 0 0 413
+
+--------------------------------------------------
