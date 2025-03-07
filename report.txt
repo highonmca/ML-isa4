@@ -1,0 +1,127 @@
+# Research Project Report
+
+## Title: Graph Data Extraction using Computer Vision and Numerical Analysis
+
+### Author: [Your Name]
+### Date: [Date]
+### Institution: [Institution Name]
+
+---
+
+## 1. Abstract
+This research project explores the application of computer vision techniques and numerical analysis to extract graph data from images. The implemented methodology uses OpenCV for image preprocessing, edge detection, and contour extraction, followed by coordinate transformation and numerical differentiation to estimate key characteristics of the graph. This report presents the computational workflow, mathematical foundations, and the effectiveness of this approach in extracting structured data from visual representations.
+
+---
+
+## 2. Introduction
+Graph-based data representation is a fundamental tool in scientific research, engineering, and data analytics. However, manually extracting data from printed or digital graphs is time-consuming and prone to errors. This research aims to automate this process by developing a Python-based method for extracting and analyzing graph data from images using computer vision and numerical techniques.
+
+### 2.1 Objectives
+- Develop a computational approach to extract graph data from images.
+- Implement an image processing pipeline to detect axes and curves.
+- Convert pixel coordinates to real-world graph coordinates.
+- Compute slope, curvature, and angular orientation of the extracted data.
+- Store extracted data in a structured format for further analysis.
+
+---
+
+## 3. Methodology
+
+### 3.1 Image Processing
+#### 3.1.1 Grayscale Conversion
+To reduce computational complexity, the input image is converted to grayscale:
+```python
+img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+```
+
+#### 3.1.2 Adaptive Thresholding
+To enhance contrast and highlight edges, adaptive thresholding is applied:
+```python
+thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+```
+This dynamically adjusts the threshold based on local intensity variations.
+
+#### 3.1.3 Edge Detection
+Canny edge detection is used to identify graph lines:
+```python
+edges = cv2.Canny(thresh, 50, 150)
+```
+This method detects edges by analyzing intensity gradients and applying non-maximum suppression.
+
+### 3.2 Axis Detection using Hough Transform
+Straight-line detection using the Hough Transform allows for identifying the X and Y axes:
+```python
+lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold=100, minLineLength=50, maxLineGap=5)
+```
+Detected lines are classified as horizontal (X-axis) or vertical (Y-axis) based on their orientation.
+
+### 3.3 Coordinate Transformation
+Pixel coordinates `(px, py)` are mapped to real-world graph values `(real_x, real_y)` using linear transformations:
+```python
+real_x = graph_x_range[0] + ((px - y_axis_x) * x_scale)
+real_y = graph_y_range[1] - ((py - x_axis_y) * y_scale)
+```
+
+### 3.4 Data Extraction and Structuring
+Contours of the graph curve are detected and stored in a Pandas DataFrame, along with calculated attributes:
+```python
+distance_from_origin = math.sqrt(real_x**2 + real_y**2)
+df = pd.DataFrame(data_points, columns=["X", "Y", "Distance_from_Origin", "Class"]).drop_duplicates().sort_values(by=["X"])
+```
+
+### 3.5 Slope, Curvature, and Angular Analysis
+#### 3.5.1 Slope Calculation
+The numerical derivative approximates the slope of the graph:
+```python
+df['Slope'] = df['Y'].diff() / df['X'].diff()
+```
+
+#### 3.5.2 Curvature Estimation
+The second derivative approximates the curvature:
+```python
+df['Curvature'] = df['Slope'].diff() / df['X'].diff()
+```
+
+#### 3.5.3 Angle Calculation
+The angle of the graph with respect to the X-axis is computed using the inverse tangent:
+```python
+df['Angle_with_X_Axis'] = np.arctan(df['Slope']) * (180 / np.pi)
+```
+
+### 3.6 Data Storage
+Extracted data is stored as a CSV file for further analysis:
+```python
+df.to_csv(f"extracted_graph_data_{image_name}.csv", index=False)
+```
+
+---
+
+## 4. Results and Discussion
+
+### 4.1 Data Extraction Accuracy
+- The approach successfully identifies and extracts graph curves under standard conditions.
+- Errors may arise due to image noise, poor contrast, or non-standard axis placement.
+
+### 4.2 Computational Performance
+- The algorithm processes images efficiently, but performance can be affected by image resolution.
+- Smoothing techniques could enhance robustness against image artifacts.
+
+### 4.3 Potential Improvements
+- Implementation of advanced filtering to improve noise resilience.
+- AI-driven feature recognition for detecting complex graphs.
+- Support for multi-curve detection.
+
+---
+
+## 5. Conclusion
+This research presents a novel approach for automated graph data extraction using computer vision and numerical analysis. The methodology effectively converts visual graph data into structured numerical data, enabling further mathematical analysis. Future work will explore deep learning techniques for enhanced feature recognition and error correction.
+
+---
+
+## 6. References
+[1] OpenCV Documentation. https://opencv.org/
+[2] Pandas Library Documentation. https://pandas.pydata.org/
+[3] Numerical Methods for Data Science. [Author Name], [Publication Year]
+
+---
+
